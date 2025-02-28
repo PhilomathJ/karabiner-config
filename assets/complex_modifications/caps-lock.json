@@ -1,0 +1,59 @@
+{
+    "title": "Caps Lock to Esc/Ctrl and Esc (hold) to Caps Lock",
+    "rules": [
+        {
+            "description": "Caps to Esc if tapped, Ctrl if held",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_control",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "escape"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Esc stays as Esc if tapped, Caps if held",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "escape",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to_if_held_down": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "escape"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
